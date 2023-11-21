@@ -1,0 +1,10 @@
+---
+- hosts: all
+  user: prueba
+  become: yes
+  gather_facts: no
+
+  tasks:
+    - name: Prueba de conectividad hacia el gateway
+      ping:
+        data: 172.18.14.1
