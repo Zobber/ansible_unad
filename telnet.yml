@@ -1,0 +1,15 @@
+---
+- hosts: all
+  user: prueba
+  become: yes
+  become_method: sudo
+  gather_facts: no
+
+  tasks:
+    - name: Validar Conectividad hacia internet por el puerto seguro
+      wait_for:
+        host: google.com
+        port: 443
+        state: started
+        delay: 0
+        timeout: 1
